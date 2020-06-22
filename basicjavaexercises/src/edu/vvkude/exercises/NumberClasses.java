@@ -38,6 +38,10 @@ public class NumberClasses {
 		System.out.println("c1 = " + c1);
 		System.out.println("c2 = " + c2);
 		System.out.println("c3 = " + c3); //c3's output will look strange
+		
+		long num = 100976543356L;
+		int val = (int)num; //int has a shorter range than long
+		System.out.println("num = " + num);
 	}
 }
 	
