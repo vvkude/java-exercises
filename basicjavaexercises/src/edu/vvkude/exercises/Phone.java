@@ -2,18 +2,29 @@ package edu.vvkude.exercises;
 
 public class Phone {
 	static boolean softKeyboard = true;
+	
+	public void setSoftKeyboard(boolean val) {
+		softKeyboard = val;
+	}
+	
+	public boolean getSoftKeyboard() {
+		return softKeyboard;
+	}
 }
 	
-// We should not set a static variable directly
-class TestPhone{
+class TestPhone {
 	public static void main(String[] args) {
-		Phone.softKeyboard = false;
 		Phone p1 = new Phone();
 		Phone p2 = new Phone();
-		System.out.println(p1.softKeyboard); // Prints false
-		System.out.println(p2.softKeyboard); // Prints false
-		p1.softKeyboard = true;
-		System.out.println(p1.softKeyboard); // Prints true
-		System.out.println(p2.softKeyboard); // Prints true
+		p1.setSoftKeyboard(false);
+		p2.setSoftKeyboard(true);
+		boolean model1 = p1.getSoftKeyboard();
+		boolean model2 = p2.getSoftKeyboard();
+		System.out.println(model1); // Prints true
+		System.out.println(model2); // Prints true
+		p1.setSoftKeyboard(false);
+		p2.setSoftKeyboard(false);
+		System.out.println(model1); // Prints true
+		System.out.println(model2); // Prints true
 	}
 }
