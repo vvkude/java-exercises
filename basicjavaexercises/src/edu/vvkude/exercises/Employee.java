@@ -8,8 +8,16 @@ public class Employee {
 		name = val;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	public void setAge(int years) {
 		age = years;
+	}
+	
+	public int getAge() {
+		return age;
 	}
 	
 	public int daysOffWork(int... days) {
@@ -17,10 +25,6 @@ public class Employee {
 		for (int i = 0; i < days.length; i++)
 			daysOff += days[i];
 		return daysOff;
-	}
-	
-	public void printEmp() {
-		System.out.println("Name is " + name + " age is " + age);
 	}
 }
 
@@ -30,7 +34,8 @@ class Office {
 		Employee e1 = new Employee();
 		e1.setName("Bananas");
 		e1.setAge(27);
-		e1.printEmp();
-		System.out.println(e1.daysOffWork(1,2,3));
+		String name = e1.getName();
+		System.out.println("Number of days off: " + e1.daysOffWork(1,2,3));
+		System.out.println("Name: " + e1.getName() + " Age: " + e1.getAge());
 	}
 }
