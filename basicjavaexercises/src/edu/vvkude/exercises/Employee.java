@@ -32,10 +32,17 @@ public class Employee {
 class Office {
 	public static void main(String[] args) {
 		Employee e1 = new Employee();
+		Employee e2 = new Employee();
 		e1.setName("Bananas");
 		e1.setAge(27);
-		String name = e1.getName();
+		e2.setName("Bojangles");
+		e2.setAge(33);
+		String employeeName = e1.getName();
+		int employeeAge = e1.getAge();
+		String employerName = e2.getName();
+		int employerAge = e2.getAge();
 		System.out.println("Number of days off: " + e1.daysOffWork(1,2,3));
-		System.out.println("Name: " + e1.getName() + " Age: " + e1.getAge());
+		System.out.println("Employee Name: " + employeeName + " Age: " + employeeAge);
+		System.out.println("Employer Name: " + employerName + " Age: " + employerAge);
 	}
 }
