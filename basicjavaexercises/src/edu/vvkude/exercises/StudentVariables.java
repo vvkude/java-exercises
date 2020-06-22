@@ -11,6 +11,7 @@ public class StudentVariables {
 		return avg;
 	}
 	
+	//TODO avg is local to the StudentVariables class and cannot be accessed outside of it
 	public void setAverage(double val) {
 		avg = val;
 	}
