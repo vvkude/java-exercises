@@ -32,8 +32,8 @@ public class NumberClasses {
 			System.out.println(e);
 		}
 		
-		char c1 = 122;
-		char c2 = '\u0122';
+		char c1 = 122; //This is a gross way to assign a a lower-case z to the variable c1
+		char c2 = '\u0122'; //This is a number in base 16
 		System.out.println("c1 = " + c1);
 		System.out.println("c2 = " + c2);
 	}
