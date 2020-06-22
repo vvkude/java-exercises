@@ -26,5 +26,7 @@ class TestPhone {
 		p2.setSoftKeyboard(false);
 		System.out.println(model1); // Prints true
 		System.out.println(model2); // Prints true
+		Phone p3 = null;
+		System.out.println(p3.softKeyboard); // Should not throw an exception
 	}
 }
