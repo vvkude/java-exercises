@@ -18,10 +18,12 @@ public class StudentVariables {
 			return avg;
 		}
 	}
-		
 
-	
-	
-
-	
+    public void localVariableInLoop() {
+	    int ctr2 = 1;
+	    for (int ctr = 0; ctr < 5; ++ctr) {
+		    System.out.println(ctr);
+	    }
+	    System.out.println(ctr2); // This should not have access to ctr from the for loop
+    }
 }
