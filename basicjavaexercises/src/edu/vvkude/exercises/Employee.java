@@ -13,6 +13,7 @@ public class Employee {
 	}
 	
 	public void setAge(int years) {
+		if (years > 0)
 		age = years;
 	}
 	
@@ -36,7 +37,7 @@ class Office {
 		e1.setName("Bananas");
 		e1.setAge(27);
 		e2.setName("Bojangles");
-		e2.setAge(33);
+		e2.setAge(-33);
 		String employeeName = e1.getName();
 		int employeeAge = e1.getAge();
 		String employerName = e2.getName();
