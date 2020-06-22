@@ -12,6 +12,13 @@ public class Employee {
 		age = years;
 	}
 	
+	public int daysOffWork(int... days) {
+		int daysOff = 0; //initialize value to 0
+		for (int i = 0; i < days.length; i++)
+			daysOff += days[i];
+		return daysOff;
+	}
+	
 	public void printEmp() {
 		System.out.println("Name is " + name + " age is " + age);
 	}
@@ -24,5 +31,6 @@ class Office {
 		e1.setName("Bananas");
 		e1.setAge(27);
 		e1.printEmp();
+		System.out.println(e1.daysOffWork(1,2,3));
 	}
 }
