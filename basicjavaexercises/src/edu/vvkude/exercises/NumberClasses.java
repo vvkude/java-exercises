@@ -34,8 +34,10 @@ public class NumberClasses {
 		
 		char c1 = 122; //This is a gross way to assign a a lower-case z to the variable c1
 		char c2 = '\u0122'; //This is a number in base 16
+		char c3 = (char)-122; //Java doesn't allocate space to store the sign of an integer
 		System.out.println("c1 = " + c1);
 		System.out.println("c2 = " + c2);
+		System.out.println("c3 = " + c3); //c3's output will look strange
 	}
 }
 	
