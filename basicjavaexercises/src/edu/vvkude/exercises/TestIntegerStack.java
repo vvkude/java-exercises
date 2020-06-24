@@ -5,16 +5,19 @@ package edu.vvkude.exercises;
 public class TestIntegerStack {
 
 	public static void main(String[] args) {
-		// TODO add no-arg call to create a default integer stack
-		// TODO add a way to push to stack
-		// TODO add a way to print a stack that is not empty
-		// TODO what about a stack that has zero elements? 
+		IntegerStack stack = new IntegerStack();
+		
+		for (int i = 0; i < 10; i++)
+			stack.push(i);
+		
+		while (!stack.empty())
+			System.out.print(stack.pop() + " ");
 
 	}
 
 
 
-    public class IntegerStack {
+	static class IntegerStack { // TODO remove static access modifier when moving to new file
 	    private int[] elements;
 	    private int size;
 	    public static final int DEFAULT_CAPACITY = 16; // Start with a small, manageable number for testing
@@ -30,9 +33,11 @@ public class TestIntegerStack {
 	    }
 	    
 	    // TODO make a way to push a new integer to the top of the stack
+	    // When the stack is over a certain size, make a new array and copy the elements to it
 	    public void push(int value) {
 	    	if(size >= elements.length) {
 	    		int[] temp = new int[elements.length * 2];
+	    		System.arraycopy(elements,  0,  temp,  0,  elements.length);
 	    		elements = temp;
 	    	}
 	    	
@@ -50,7 +55,7 @@ public class TestIntegerStack {
 	    }
 	    
 	    // TODO make a way to determine whether the stack is empty, or not
-	    public boolean isEmpty() {
+	    public boolean empty() {
 	    	return size == 0;
 	    }
 	    
