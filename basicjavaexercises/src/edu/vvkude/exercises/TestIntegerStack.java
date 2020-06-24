@@ -30,13 +30,33 @@ public class TestIntegerStack {
 	    }
 	    
 	    // TODO make a way to push a new integer to the top of the stack
+	    public void push(int value) {
+	    	if(size >= elements.length) {
+	    		int[] temp = new int[elements.length * 2];
+	    		elements = temp;
+	    	}
+	    	
+	    	elements[size++] = value;
+	    }
 	    
 	    // TODO make a way to return and remove the top element of the stack
+	    public int pop() {
+	    	return elements[--size];
+	    }
 	    
 	    // TODO make a way to peek at the top element of the stack
+	    public int peek() {
+	    	return elements[size - 1];
+	    }
 	    
 	    // TODO make a way to determine whether the stack is empty, or not
+	    public boolean isEmpty() {
+	    	return size == 0;
+	    }
 	    
 	    // TODO make a way to return all the elements in the stack
+	    public int getSize() {
+	    	return size;
+	    }
     }
-}
+} // TODO move IntegerStack class to its own file
