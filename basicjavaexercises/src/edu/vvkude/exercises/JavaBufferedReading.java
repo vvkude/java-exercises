@@ -34,7 +34,7 @@ public class JavaBufferedReading {
 		// TODO - implement the BufferedReader using a try-with-resources statement to ensure object closure (?)
 		// => "any object that implements java.lang.AutoCloseable can be used as a resource"
 		// => "all objects which implement java.io.Closeable implement java.lang.AutoCloseable"
-		try (BufferedReader br = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)){
+		try (BufferedReader br = Files.newBufferedReader(filePath, StandardCharsets.US_ASCII)){
 			
 			// read in first line from our CSV
 			String line = br.readLine();
