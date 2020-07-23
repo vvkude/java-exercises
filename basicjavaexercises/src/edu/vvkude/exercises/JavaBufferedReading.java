@@ -14,11 +14,10 @@ import java.util.List;
 public class JavaBufferedReading {
 
 	public static void main(String... args) {
-		// TODO - Probably make an ArrayList to hold the information once it's read in from the csv
-		// TODO - main method should consume the csv file and print out individual elements from it
+		// We will use polymorphism in evoking a List interface and passing an ArrayList to it
 		List<Book> books = readBooks("//Users//vkudesia//bookAuthors.csv");
 		
-		// Display all of the authors read from the CSV file
+		// Display all of the authors read from the CSV file, printed on their own lines
 		for (Book b : books) {
 			System.out.println(b);
 		}
@@ -26,40 +25,39 @@ public class JavaBufferedReading {
 	}
 	
 	private static List<Book> readBooks(String fileName) {
+		// We use a List interface so that the program will work as expected whether a LinkedList or ArrayList, etc is passed in
 		List<Book> books = new ArrayList<>();
 		Path filePath = Paths.get(fileName);
-		
-		// TODO - create a BufferedReader instance
 
-		// TODO - implement the BufferedReader using a try-with-resources statement to ensure object closure (?)
+		// Implement the BufferedReader using a try-with-resources statement to ensure object closure
 		// => "any object that implements java.lang.AutoCloseable can be used as a resource"
 		// => "all objects which implement java.io.Closeable implement java.lang.AutoCloseable"
 		try (BufferedReader br = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)){
 			
-			// read in first line from our CSV
+			// Read in first line from our CSV
 			String line = br.readLine();
 			
-			// loop until null referene marking end of file
+			// Loop until null reference marking end of file
 			while (line != null) {
 				
-				// TODO - use String.split() to load a string array with the values from the csv
-				// indicate a comma as our delimeter
+				// Use String.split() to load a string array with the values from the csv
+				// indicate a comma as our delimiter
 				String[] elements = line.split(",");
 				
-				// TODO - Create a java class to represent our book objects
+				// A method from our Book class will handle representing the values from our CSV as meaningful data elements
 				Book book = createBook(elements);
 				
 				// Add to our ArrayList
 				books.add(book);
 				
-				// TODO - determine if it's best to read the next line before looping?
+				// Read the next line before looping. If it's the end of the file, this will be null
 				line = br.readLine();
-			} // TODO - catch IOException
+			} // TODO - after catching an error, we could do something useful like printing out the last "good "value
 		} catch (IOException inputOutputError) {
 			inputOutputError.printStackTrace();
 		}
 		
-		// send the data back to our interface "books"
+		// send the data back to our List interface "books"
 		return books;
 	}
 	
@@ -75,7 +73,7 @@ public class JavaBufferedReading {
 
 }
 
-//TODO - create a java class that will represent the data elements from our csv file and will implement getters and setters
+//This Book class will represent the data from our CSV
 class Book {
 	private String name;
 	// TODO - make price a float so that the value can be precise
@@ -117,39 +115,3 @@ class Book {
 		return "Book [name=" + name + ", price=" + price + ". author=" + author + "]";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
