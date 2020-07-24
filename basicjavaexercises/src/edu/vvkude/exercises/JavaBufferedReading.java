@@ -8,6 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 
 
@@ -42,6 +44,7 @@ public class JavaBufferedReading {
 				
 				// Use String.split() to load a string array with the values from the csv
 				// indicate a comma as our delimiter
+				// TODO - Handle cases with quoted CSV data elements
 				String[] elements = line.split(",");
 				
 				// A method from our Book class will handle representing the values from our CSV as meaningful data elements
@@ -66,7 +69,7 @@ public class JavaBufferedReading {
 		// the indexes of our Arrays in our ArrayList should map to a column in our csv
 		String name = bookmeta[0];
 		// TODO - make price a float so that the value can be precise
-		int price = Integer.parseInt(bookmeta[1]);
+		float price = Float.parseFloat(bookmeta[1]);
 		String author = bookmeta[2];
 		
 		// create a "book" object with this metadata and return it
@@ -79,10 +82,10 @@ public class JavaBufferedReading {
 class Book {
 	private String name;
 	// TODO - make price a float so that the value can be precise
-	private int price;
+	private float price;
 	private String author;
 	
-	public Book(String name, int price, String author) {
+	public Book(String name, float price, String author) {
 		this.name = name;
 		this.price = price;
 		this.author = author;
@@ -96,11 +99,11 @@ class Book {
 		this.name = name;
 	}
 	
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 	
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	
@@ -111,6 +114,7 @@ class Book {
 	public void setAuthor() {
 		this.author = author;
 	}
+	
 	
 	@Override
 	public String toString() {
