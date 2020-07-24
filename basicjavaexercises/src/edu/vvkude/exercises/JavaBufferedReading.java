@@ -61,7 +61,9 @@ public class JavaBufferedReading {
 		return books;
 	}
 	
+	// createBook slots in the columns from our csv into the appropriate variables in our Book object 
 	private static Book createBook(String[] bookmeta) {
+		// the indexes of our Arrays in our ArrayList should map to a column in our csv
 		String name = bookmeta[0];
 		// TODO - make price a float so that the value can be precise
 		int price = Integer.parseInt(bookmeta[1]);
